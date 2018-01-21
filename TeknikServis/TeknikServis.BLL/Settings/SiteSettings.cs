@@ -11,7 +11,7 @@ namespace TeknikServis.BLL.Settings
 {
     public static class SiteSettings
     {
-        public static string SiteMail = "ozbeyteknikservis@gmail.com";
+        public static string SiteMail = "kamilfidil@gmail.com";
         public static string SiteMailPassword = "123456kf";
         public static string SiteMailSmtpHost = "smtp.gmail.com";
         public static int SiteMailSmtpPort = 587;
