@@ -12,7 +12,7 @@ using TeknikServis.Entity.Enums;
 using TeknikServis.Entity.IdentityModels;
 using TeknikServis.Entity.ViewModels;
 
-namespace TeknikServis.MVC.Areas.Musteri.Controllers
+namespace TeknikServis.MVC.Controllers
 {
     public class AccountController : Controller
     {
@@ -26,7 +26,6 @@ namespace TeknikServis.MVC.Areas.Musteri.Controllers
         {
             if (!ModelState.IsValid)
                 return View(model);
-
             var userManager = MembershipTools.NewUserManager();
 
             var checkUser = userManager.FindByName(model.Ad);
@@ -60,10 +59,10 @@ namespace TeknikServis.MVC.Areas.Musteri.Controllers
                 {
                     To = user.Email,
                     Subject = "Özbey Teknik Servis - Aktivasyon",
-                    Message = $"Merhaba {user.Ad} {user.Soyad} <br/>Hesabınızı aktifleştirmek için <b><a href='{siteUrl}/Account/Activation?code={activationCode}'>Aktivasyon Kodu</a></b> tıklayınız."
+                    Message = $"Merhaba  {user.Ad} {user.Soyad}  <br/>Hesabınızı aktifleştirmek için <b><a href='{siteUrl}/Account/Activation?code={activationCode}'>Aktivasyon Kodu</a></b> tıklayınız."
                 });
 
-                return RedirectToAction("Hakkımızda", "Home");
+                return RedirectToAction("Hakkimizda", "Home");
             }
             else
             {
@@ -111,7 +110,7 @@ namespace TeknikServis.MVC.Areas.Musteri.Controllers
                 IsPersistent = model.BeniHatirla
             }, userIdentity);
             if (string.IsNullOrEmpty(model.GeriDon))
-                return RedirectToAction("Index", "MusteriHome");
+                return RedirectToAction("Anasayfa", "Home");
             try
             {
                 var url = model.GeriDon.Split('/');
@@ -217,7 +216,6 @@ namespace TeknikServis.MVC.Areas.Musteri.Controllers
             }
 
         }
-
         public ActionResult RecoverPassword()
         {
             return View();

@@ -230,15 +230,8 @@
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
-    <Content Include="Areas\Musteri\Views\web.config" />
-    <Content Include="Areas\Musteri\Views\MusteriHome\Anasayfa.cshtml" />
-    <Content Include="Areas\Musteri\Views\MusteriHome\Hakkimizda.cshtml" />
-    <Content Include="Areas\Musteri\Views\MusteriHome\Iletisim.cshtml" />
-    <Content Include="Areas\Musteri\Views\MusteriHome\ArizaKayit.cshtml" />
     <Content Include="Areas\Operator\Views\web.config" />
     <Content Include="Areas\Teknisyen\Views\web.config" />
-    <Content Include="Areas\Musteri\Views\Account\Login.cshtml" />
-    <Content Include="Areas\Musteri\Views\Account\Register.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -284,11 +277,10 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
-    <Compile Include="Areas\Musteri\Controllers\AccountController.cs" />
-    <Compile Include="Areas\Musteri\Controllers\MusteriHomeController.cs" />
-    <Compile Include="Areas\Musteri\MusteriAreaRegistration.cs" />
     <Compile Include="Areas\Operator\OperatorAreaRegistration.cs" />
     <Compile Include="Areas\Teknisyen\TeknisyenAreaRegistration.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -480,6 +472,13 @@
     <Content Include="vendor\font-awesome\scss\_screen-reader.scss" />
     <Content Include="vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="vendor\font-awesome\scss\_variables.scss" />
+    <Content Include="Views\Home\Anasayfa.cshtml" />
+    <Content Include="Views\Home\Hakkimizda.cshtml" />
+    <Content Include="Views\Home\Iletisim.cshtml" />
+    <Content Include="Views\Home\ArizaKayit.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Activation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -491,17 +490,13 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
-    <Folder Include="Areas\Musteri\Models\" />
-    <Folder Include="Areas\Musteri\Views\Shared\" />
     <Folder Include="Areas\Operator\Controllers\" />
     <Folder Include="Areas\Operator\Models\" />
     <Folder Include="Areas\Operator\Views\Shared\" />
     <Folder Include="Areas\Teknisyen\Controllers\" />
     <Folder Include="Areas\Teknisyen\Models\" />
     <Folder Include="Areas\Teknisyen\Views\Shared\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Account\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TeknikServis.BLL\TeknikServis.BLL.csproj">

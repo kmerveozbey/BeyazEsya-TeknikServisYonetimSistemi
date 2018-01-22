@@ -1,26 +1,61 @@
 ﻿<nav class="gtco-nav" role="navigation">
     <div class="gtco-container">
-
         <div class="row">
             <div class="col-sm-4 col-xs-12">
+                <div class="text-right menu-1" style="text-align:left">
+                    @if (HttpContext.Current.User.IsInRole("Admin"))
+                    {
+                        <ul>
+                            <li>
+                                <i class="fa fa-lock"></i>
+                                <a href="@Url.Action("Anasayfa", "AdminHome", new { Area = "Admin" })">ADMİN PANELİ</a>
+                            </li>
+                        </ul>
+                    }
+                    @if (HttpContext.Current.User.IsInRole("Operator"))
+                    {
+                        <ul>
+                            <li>
+                                <i class="fa fa-lock"></i>
+                                <a href="@Url.Action("Anasayfa", "OperatorHome", new { Area = "Operator" })">OPERATOR PANELİ</a>
+                            </li>
+                        </ul>
+                    }
+                    @if (HttpContext.Current.User.IsInRole("Teknisyen"))
+                    {
+                        <ul>
+                            <li>
+                                <i class="fa fa-lock"></i>
+                                <a href="@Url.Action("Anasayfa", "TeknisyenHome", new { Area = "Teknisyen" })">TEKNİSYEN PANELİ</a>
+                            </li>
+                        </ul>
+                    }
+                </div>
+                <br />
                 <div id="gtco-logo"><a href="index.html"><em>.</em>ÖZBEY TEKNİK SERVİS <em>.</em></a></div>
             </div>
             <div class="col-xs-8 text-right menu-1">
                 <ul>
-                    <li><a href="@Url.Action("Anasayfa","MusteriHome")">ANASAYFA</a></li>
-                    <li><a href="@Url.Action("Hakkimizda","MusteriHome")">HAKKIMIZDA</a></li>
+                    <li><a href="@Url.Action("Anasayfa","Home")">ANASAYFA</a></li>
+                    <li><a href="@Url.Action("Hakkimizda","Home")">HAKKIMIZDA</a></li>
                     <li class="has-dropdown">
                         <a href="#">ARIZA</a>
                         <ul class="dropdown">
-                            <li><a href="@Url.Action("ArizaKayit","MusteriHome")">ARIZA KAYIT</a></li>
-                            <li><a href="@Url.Action("Arizalarim","MusteriHome")">ARIZA TAKİP</a></li>
+                            <li><a href="@Url.Action("ArizaKayit","Home")">ARIZA KAYIT</a></li>
+                            <li><a href="@Url.Action("Arizalarim","Home")">ARIZA TAKİP</a></li>
                         </ul>
                     </li>
-                    <li><a href="@Url.Action("Iletisim","MusteriHome")">İLETİŞİM</a></li>
+                    <li><a href="@Url.Action("Iletisim","Home")">İLETİŞİM</a></li>
+                    <li class="has-dropdown">
+                        <a href="#">KULLANICI ISLEMLERI</a>
+                        <ul class="dropdown">
+                            <li><a href="@Url.Action("Register","Account")">KAYIT OL</a></li>
+                            <li><a href="@Url.Action("Login","Account")">GIRIS YAP</a></li>
+                        </ul>
+                    </li>
+
                 </ul>
             </div>
         </div>
-
     </div>
 </nav>
-

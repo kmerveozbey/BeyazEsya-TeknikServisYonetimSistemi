@@ -42,16 +42,15 @@
 
     <div id="page">
         @{
-            Html.RenderAction("NavResult", "MusteriHome");
+        Html.RenderAction("NavResult", "MusteriHome");
         }
         @RenderBody()
         @{
-            Html.RenderAction("SectionResult", "MusteriHome");
-            Html.RenderAction("FeaturesResult", "MusteriHome");
-            Html.RenderAction("SubscribeResult", "MusteriHome");
-            Html.RenderAction("FooterResult", "MusteriHome");
+        Html.RenderAction("SectionResult", "MusteriHome");
+        Html.RenderAction("FeaturesResult", "MusteriHome");
+        Html.RenderAction("SubscribeResult", "MusteriHome");
+        Html.RenderAction("FooterResult", "MusteriHome");
         }
-
     </div>
     <!-- jQuery -->
     <script src="/js/jquery.min.js"></script>
