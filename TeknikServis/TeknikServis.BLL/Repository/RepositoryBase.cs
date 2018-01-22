@@ -38,7 +38,6 @@ namespace TeknikServis.BLL.Repository
             }
         }
 
-
         public virtual T GetById(ID id)
         {
             try

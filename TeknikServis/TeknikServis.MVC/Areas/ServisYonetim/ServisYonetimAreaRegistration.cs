@@ -1,22 +1,22 @@
 ﻿using System.Web.Mvc;
 
-namespace TeknikServis.MVC.Areas.Musteri
+namespace TeknikServis.MVC.Areas.ServisYonetim
 {
-    public class MusteriAreaRegistration : AreaRegistration 
+    public class ServisYonetimAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
             get 
             {
-                return "Musteri";
+                return "ServisYonetim";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "Musteri_default",
-                "Musteri/{controller}/{action}/{id}",
+                "ServisYonetim_default",
+                "ServisYonetim/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

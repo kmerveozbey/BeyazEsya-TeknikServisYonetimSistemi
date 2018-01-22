@@ -140,8 +140,6 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\AdminHome\Anasayfa.cshtml" />
     <Content Include="assets\css\main-style.css" />
     <Content Include="assets\css\style.css" />
     <Content Include="assets\font-awesome\css\font-awesome.css" />
@@ -230,8 +228,9 @@
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
-    <Content Include="Areas\Operator\Views\web.config" />
-    <Content Include="Areas\Teknisyen\Views\web.config" />
+    <Content Include="Areas\ServisYonetim\Views\web.config" />
+    <Content Include="Areas\ServisYonetim\Views\Admin\Anasayfa.cshtml" />
+    <Content Include="Areas\ServisYonetim\Views\Admin\MusteriIslemleri.cshtml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -275,10 +274,10 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
-    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
-    <Compile Include="Areas\Operator\OperatorAreaRegistration.cs" />
-    <Compile Include="Areas\Teknisyen\TeknisyenAreaRegistration.cs" />
+    <Compile Include="Areas\ServisYonetim\Controllers\AdminController.cs" />
+    <Compile Include="Areas\ServisYonetim\Controllers\OperatorController.cs" />
+    <Compile Include="Areas\ServisYonetim\Controllers\TeknisyenController.cs" />
+    <Compile Include="Areas\ServisYonetim\ServisYonetimAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -488,20 +487,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
-    <Folder Include="Areas\Operator\Controllers\" />
-    <Folder Include="Areas\Operator\Models\" />
-    <Folder Include="Areas\Operator\Views\Shared\" />
-    <Folder Include="Areas\Teknisyen\Controllers\" />
-    <Folder Include="Areas\Teknisyen\Models\" />
-    <Folder Include="Areas\Teknisyen\Views\Shared\" />
+    <Folder Include="Areas\ServisYonetim\Models\" />
+    <Folder Include="Areas\ServisYonetim\Views\Operator\" />
+    <Folder Include="Areas\ServisYonetim\Views\Shared\" />
+    <Folder Include="Areas\ServisYonetim\Views\Teknisyen\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TeknikServis.BLL\TeknikServis.BLL.csproj">
       <Project>{42da8dc6-6ede-4977-a626-219b3634ed90}</Project>
       <Name>TeknikServis.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeknikServis.DAL\TeknikServis.DAL.csproj">
+      <Project>{A5011097-893A-47C6-A97A-A19035BDF074}</Project>
+      <Name>TeknikServis.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\TeknikServis.Entity\TeknikServis.Entity.csproj">
       <Project>{d3ccb10e-30fc-4157-93ab-48d24606f37e}</Project>
