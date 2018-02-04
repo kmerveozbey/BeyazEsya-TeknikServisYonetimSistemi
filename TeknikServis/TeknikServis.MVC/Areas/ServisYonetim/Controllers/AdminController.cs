@@ -14,6 +14,7 @@ using TeknikServis.Entity.ViewModels;
 
 namespace TeknikServis.MVC.Areas.ServisYonetim.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         public ActionResult Anasayfa()
@@ -132,12 +133,12 @@ namespace TeknikServis.MVC.Areas.ServisYonetim.Controllers
                 UyeAdı = MembershipTools.GetUserName(item.Uye.Id),
                 Email = item.Email,
                 Mesaj = item.Mesaj,
-                TelNo=item.TelNo,
-                TeknisyenID=item.TeknisyenID,
+                TelNo = item.TelNo,
+                TeknisyenID = item.TeknisyenID,
             }));
             var rolManager = MembershipTools.NewRoleManager();
             var roller = rolManager.Roles.ToList();
-            return View(model.Where(x=>x.TeknisyenID==null).ToList());
+            return View(model.Where(x => x.TeknisyenID == null).ToList());
         }
 
         public ActionResult YonlendirilmisArizalar()
@@ -147,7 +148,7 @@ namespace TeknikServis.MVC.Areas.ServisYonetim.Controllers
             new ArizaKayitRepo().GetAll().ToList()
             .ForEach(item => model.Add(new ArizaViewModel()
             {
-                ArizaId=item.ID,
+                ArizaId = item.ID,
                 UyeId = item.Uye.Id,
                 UyeAdı = MembershipTools.GetUserName(item.Uye.Id),
                 Email = item.Email,
@@ -169,14 +170,14 @@ namespace TeknikServis.MVC.Areas.ServisYonetim.Controllers
                 return RedirectToAction("Anasayfa");
             var model = new ArizaViewModel()
             {
-               UyeId=listelenecek.UyeId,
-               UyeAdı=listelenecek.Uye.Ad+" "+listelenecek.Uye.Soyad,
-               Email=listelenecek.Email,
-               TelNo=listelenecek.TelNo,
-               Mesaj=listelenecek.Mesaj,
-               LocationX=listelenecek.LocationX,
-               LocationY=listelenecek.LocationY,
-               TeknisyenID=listelenecek.TeknisyenID,
+                UyeId = listelenecek.UyeId,
+                UyeAdı = listelenecek.Uye.Ad + " " + listelenecek.Uye.Soyad,
+                Email = listelenecek.Email,
+                TelNo = listelenecek.TelNo,
+                Mesaj = listelenecek.Mesaj,
+                LocationX = listelenecek.LocationX,
+                LocationY = listelenecek.LocationY,
+                TeknisyenID = listelenecek.TeknisyenID,
             };
             return View(model);
         }
