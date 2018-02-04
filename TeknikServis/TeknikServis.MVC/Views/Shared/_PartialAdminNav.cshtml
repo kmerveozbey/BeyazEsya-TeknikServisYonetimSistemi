@@ -13,10 +13,11 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseComponents">
                     <li>
-                        <a href="navbar.html">Yönlendirilmemiş Arızalar</a>
+                        <a href="@Url.Action("YonlendirilmemisArizalar", "Admin", new { Area = "ServisYonetim" })">Yönlendirilmemiş Arızalar</a>
                     </li>
                     <li>
-                        <a href="cards.html">Arızaları Listele</a>
+                        <a href="@Url.Action("YonlendirilmisArizalar", "Admin", new { Area = "ServisYonetim" })">Arızaları Listele</a>
+
                     </li>
                 </ul>
             </li>
@@ -27,43 +28,40 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseMulti">
                     <li>
-                        <a href="@Url.Action("MusteriIslemleri", "Admin", new { Area = "ServisYonetim" })">Müşteri</a>
+                        <a href="@Url.Action("KullanicilariListele", "Admin", new { Area = "ServisYonetim" })">Listele</a>
                     </li>
                     <li>
-                        <a href="@Url.Action("OperatorIslemleri", "Admin", new { Area = "ServisYonetim" })">Operatör</a>
+                        <a href="@Url.Action("KullaniciEkle", "Admin", new { Area = "ServisYonetim" })">Ekle</a>
                     </li>
-                    <li>
-                        <a href="@Url.Action("TeknisyenIslemleri", "Admin", new { Area = "ServisYonetim" })">Teknisyen</a>
-                    </li>
-                    
+
                 </ul>
             </li>
-            </ul>
-                <ul class="navbar-nav sidenav-toggler">
-                    <li class="nav-item">
-                        <a class="nav-link text-center" id="sidenavToggler">
-                            <i class="fa fa-fw fa-angle-left"></i>
-                        </a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">                    
-                    <li class="nav-item">
-                        <form class="form-inline my-2 my-lg-0 mr-lg-2">
-                            <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Aranacak kelimeyi giriniz...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                            </div>
-                        </form>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-                            <i class="fa fa-fw fa-sign-out"></i>Çıkış Yap
-                        </a>
-                    </li>
-                </ul>
-</div>
+        </ul>
+        <ul class="navbar-nav sidenav-toggler">
+            <li class="nav-item">
+                <a class="nav-link text-center" id="sidenavToggler">
+                    <i class="fa fa-fw fa-angle-left"></i>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <form class="form-inline my-2 my-lg-0 mr-lg-2">
+                    <div class="input-group">
+                        <input class="form-control" type="text" placeholder="Aranacak kelimeyi giriniz...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                    <i class="fa fa-fw fa-sign-out"></i>Çıkış Yap
+                </a>
+            </li>
+        </ul>
+    </div>
 </nav>

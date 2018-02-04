@@ -15,10 +15,10 @@ namespace TeknikServis.Entity.Entities
         public int ID { get; set; }
         public string DosyaYolu { get; set; }
         public string Uzanti { get; set; }
-        public int? ArizaDetayID { get; set; }
+        public int? ArizaID { get; set; }
 
-        [ForeignKey("ArizaDetayID")]
-        public virtual ArizaDetay ArizaDetay { get; set; }
+        [ForeignKey("ArizaID")]
+        public virtual ArizaKayit Ariza { get; set; }
     }
 }
 

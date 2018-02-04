@@ -18,13 +18,9 @@ namespace TeknikServis.Entity.Entities
         public string UyeId { get; set; }
         [ForeignKey("UyeId")]
         public virtual ApplicationUser Uye { get; set; }
-
+        
         [Required]
-        [StringLength(100)]
-        public string Meslek { get; set; }
-
-        [Required]
-        public bool BostaMi { get; set; } = false;
+        public bool BostaMi { get; set; } = true;
 
         public virtual List<ArizaKayit> ArizaKayitlari { get; set; } = new List<ArizaKayit>();
 

@@ -22,9 +22,25 @@ namespace TeknikServis.Entity.Entities
         public int? TeknisyenID { get; set; }
         [ForeignKey("TeknisyenID")]
         public virtual Teknisyen Teknisyen { get; set; }
+        
+        [Required]
+        public string LocationX { get; set; }
+
+        [Required]
+        public string LocationY { get; set; }
+
+        [Required]
+        public string Mesaj { get; set; }
+
+        [Required]
+        public string Email { get; set; }
+
+        [Required]
+        public string TelNo { get; set; }
+
+        public virtual List<Dosya> Dosyalar { get; set; } = new List<Dosya>();
 
         public virtual List<ArizaDurumDetay> ArizaDurumDetaylari { get; set; } = new List<ArizaDurumDetay>();
-        public virtual List<ArizaDetay> ArizaDetaylari { get; set; } = new List<ArizaDetay>();
 
     }
 }

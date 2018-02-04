@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{42DA8DC6-6EDE-4977-A626-219B3634ED90}</ProjectGuid>
+    <ProjectGuid>{D36FF4B3-7B5E-4CA9-AFA6-853E8E48DDBB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TeknikServis.BLL</RootNamespace>
@@ -83,11 +83,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TeknikServis.DAL\TeknikServis.DAL.csproj">
-      <Project>{a5011097-893a-47c6-a97a-a19035bdf074}</Project>
+      <Project>{9c1e246c-fa88-4434-a12e-8513e9f2eab8}</Project>
       <Name>TeknikServis.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\TeknikServis.Entity\TeknikServis.Entity.csproj">
-      <Project>{d3ccb10e-30fc-4157-93ab-48d24606f37e}</Project>
+      <Project>{21b707f7-b2f6-4b19-8946-956ce825eaf8}</Project>
       <Name>TeknikServis.Entity</Name>
     </ProjectReference>
   </ItemGroup>

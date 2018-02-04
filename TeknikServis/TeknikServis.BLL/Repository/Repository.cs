@@ -10,7 +10,6 @@ using TeknikServis.Entity.Entities;
 namespace TeknikServis.BLL.Repository
 {
     public class ArizaKayitRepo : RepositoryBase<ArizaKayit, int> { }
-    public class ArizaDetayRepo : RepositoryBase<ArizaDetay, int> { }
     public class DosyaRepo : RepositoryBase<Dosya, int> { }
     public class TeknisyenRepo : RepositoryBase<Teknisyen, int> { }
     public class MesajRepo : RepositoryBase<Message, int>
@@ -41,7 +40,6 @@ namespace TeknikServis.BLL.Repository
     }
     public class ArizaDurumDetayRepo : RepositoryBase<ArizaDurumDetay, int> { }
     public class AnketRepo : RepositoryBase<Anket, int> { }
-    public class SoruTuruRepo : RepositoryBase<SoruTuru, int> { }
     public class AnketSoruRepo : RepositoryBase<AnketSoru, int> { }
 
 

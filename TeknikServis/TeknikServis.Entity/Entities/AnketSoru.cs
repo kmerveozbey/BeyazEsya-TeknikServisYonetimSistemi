@@ -13,13 +13,14 @@ namespace TeknikServis.Entity.Entities
     {
         [Key]
         public int ID { get; set; }
-
-        public int SoruTuruId { get; set; }
-        [ForeignKey("SoruTuruId")]
-        public virtual SoruTuru SoruTuru { get; set; }
-
+        
         [Required]
         public string Soru { get; set; }
+
+        public int Cevap { get; set; }
+
+        public virtual List<Anket> Anketler { get; set; } = new List<Anket>();
+
 
     }
 }

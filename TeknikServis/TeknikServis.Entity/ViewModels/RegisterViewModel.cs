@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TeknikServis.Entity.Enums;
 
 namespace TeknikServis.Entity.ViewModels
 {
@@ -33,5 +34,7 @@ The password's first character must be a letter, it must contain at least 5 char
         [Display(Name = "Şifre Tekrar")]
         [Compare("Sifre", ErrorMessage = "Şifreler uyuşmuyor")]
         public string SifreTekrar { get; set; }
+
+        public IdentityRoles RolAdi { get; set; }
     }
 }

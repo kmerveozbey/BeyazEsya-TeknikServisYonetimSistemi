@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A5011097-893A-47C6-A97A-A19035BDF074}</ProjectGuid>
+    <ProjectGuid>{9C1E246C-FA88-4434-A12E-8513E9F2EAB8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TeknikServis.DAL</RootNamespace>
@@ -74,9 +74,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201801201744355_a1.cs" />
-    <Compile Include="Migrations\201801201744355_a1.Designer.cs">
-      <DependentUpon>201801201744355_a1.cs</DependentUpon>
+    <Compile Include="Migrations\201801261826544_a1.cs" />
+    <Compile Include="Migrations\201801261826544_a1.Designer.cs">
+      <DependentUpon>201801261826544_a1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801271542396_a2.cs" />
+    <Compile Include="Migrations\201801271542396_a2.Designer.cs">
+      <DependentUpon>201801271542396_a2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801300729182_a3.cs" />
+    <Compile Include="Migrations\201801300729182_a3.Designer.cs">
+      <DependentUpon>201801300729182_a3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyContext.cs" />
@@ -84,7 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TeknikServis.Entity\TeknikServis.Entity.csproj">
-      <Project>{d3ccb10e-30fc-4157-93ab-48d24606f37e}</Project>
+      <Project>{21b707f7-b2f6-4b19-8946-956ce825eaf8}</Project>
       <Name>TeknikServis.Entity</Name>
     </ProjectReference>
   </ItemGroup>
@@ -93,8 +101,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801201744355_a1.resx">
-      <DependentUpon>201801201744355_a1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801261826544_a1.resx">
+      <DependentUpon>201801261826544_a1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801271542396_a2.resx">
+      <DependentUpon>201801271542396_a2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801300729182_a3.resx">
+      <DependentUpon>201801300729182_a3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

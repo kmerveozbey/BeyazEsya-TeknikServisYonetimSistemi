@@ -1,0 +1,73 @@
+﻿@model IEnumerable<TeknikServis.Entity.ViewModels.ArizaViewModel>
+
+@{
+    ViewBag.Title = "ArizaTakip";
+    Layout = "~/Views/Shared/_LayoutMusteriGenel.cshtml";
+}
+
+<header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(images/img_bg_3.jpg)">
+    <div class="overlay"></div>
+    <div class="gtco-container">
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-left">
+                <div class="row row-mt-15em">
+                    <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
+                        <h1>Arızalarım</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div class="gtco-section">
+    <div class="gtco-container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+
+                <p>
+                    <a href="@Url.Action("ArizaKayit", "Home")">Arıza Ekle</a>
+                </p>
+
+                <table class="table table-bordered" style="font-family:arial,sans-serif;border-collapse:collapse; ">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TelNo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Mesaj)
+                            </th>
+                            <th> İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TelNo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Mesaj)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

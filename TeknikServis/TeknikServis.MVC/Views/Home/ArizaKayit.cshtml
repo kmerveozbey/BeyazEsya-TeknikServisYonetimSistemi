@@ -1,9 +1,9 @@
-﻿
+﻿@model TeknikServis.Entity.ViewModels.ArizaViewModel
+
 @{
     ViewBag.Title = "ArizaKayit";
     Layout = "~/Views/Shared/_LayoutMusteriGenel.cshtml";
 }
-
 <header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(images/img_bg_3.jpg)">
     <div class="overlay"></div>
     <div class="gtco-container">
@@ -23,37 +23,136 @@
     <div class="gtco-container">
         <div class="row">
             <div class="col-md-12">
-                <div class="col-md-6 animate-box">
+                <div class="col-md-12 animate-box">
                     <h3>Arıza Kayıt Formu</h3>
-                    <form action="#">
-                        <div class="row form-group">
-                            <div class="col-md-12">
-                                <label class="sr-only" for="name">Ad Soyad</label>
-                                <input type="text" id="name" class="form-control" placeholder="Adınızı ve soyadınızı giriniz.">
+
+                    @using (Html.BeginForm("ArizaKayit", "Home", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" })) 
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.HiddenFor(model => model.LocationX, new { id = "lat" })
+                        @Html.HiddenFor(model => model.LocationY, new { id = "long" })
+                        <div class="form-horizontal">
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.TelNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.TelNo, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.TelNo, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Dosyalar, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-sm-10">
+                                        @Html.TextBoxFor(model => model.Dosyalar, new { @class = "form-control", type = "file", multiple = true, accept = "image/*" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Mesaj, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(model => model.Mesaj, new { @class = "form-control", @cols = 30, @rows = 12 })
+                                        @Html.ValidationMessageFor(model => model.Mesaj, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Arıza Kaydını Oluştur" class="btn btn-default" />
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col-md-12">
-                                <label class="sr-only" for="email">Email</label>
-                                <input type="text" id="email" class="form-control" placeholder="Email adresinizi giriniz.">
+
+
+
+
+
+
+
+                            <div class="col-md-6">
+                                <div class="row form-group">
+                                    <div class="col-md-12">
+                                        @Html.Label("Konumunuzu Seçiniz", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="panel panel-default" id="map" style="height:500px;"></div>
+
+                                        <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+                                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUvAxLYKjz7fRDmwL7Xjs2BFInDZDtsMU" type="text/javascript"></script>
+                                        <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+                                        <script type="text/javascript">
+                                            var latlng = new google.maps.LatLng(41.015137, 28.979530);
+                                            var options = {
+                                                zoom: 10,
+                                                center: latlng,
+                                                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                                draggableCursor: "crosshair",
+                                                scrollwheel: true,
+                                                streetViewControl: false
+                                            };
+                                            var map = new google.maps.Map(document.getElementById("map"), options);
+                                            $("#zoom").val(5);
+                                            google.maps.event.addListener(map, "click", function (location) {
+                                                GetLocationInfo(location.latLng);
+                                            });
+                                            google.maps.event.addListener(map, 'zoom_changed', function (oldLevel, newLevel) {
+                                                $("#zoom").val(map.getZoom());
+                                            });
+                                            var initListener;
+                                            var marker;
+                                            function GetLocationInfo(latlng) {
+                                                if (latlng != null) {
+                                                    ShowLatLong(latlng);
+                                                    UpdateStreetView(latlng);
+                                                }
+                                            }
+                                            function GotoLatLong() {
+                                                if ($("#lat").val() != "" && $("#long").val() != "") {
+                                                    var lat = $("#lat").val();
+                                                    var long = $("#long").val();
+                                                    var latLong = new google.maps.LatLng(lat, long);
+                                                    ShowLatLong(latLong);
+                                                    map.setCenter(latLong);
+                                                    UpdateStreetView(latLong);
+                                                }
+                                            }
+
+                                            function ShowLink() {
+                                                $("#mapLink").html('<a href="ShowMap.php?lat=' + $("#lat").val() +
+                                                    '&long=' + $("#long").val() + '&zoom=' + $("#zoom").html() + '">Link for this map</a>');
+                                            }
+                                            function ShowLatLong(latLong) {
+                                                // show the lat/long
+                                                if (marker != null) {
+                                                    marker.setMap(null);
+                                                }
+                                                marker = new google.maps.Marker({
+                                                    position: latLong,
+                                                    map: map
+                                                });
+                                                $("#lat").val(latLong.lat());
+                                                $("#long").val(latLong.lng());
+                                                $("#address").val((ReverseGeocode(latLong.lat(), latLong.lng(), '#address')));
+                                                $("#adresX").val(ReverseGeocode(latLong.lat(), latLong.lng(), '#adresX'));
+                                            }
+                                        </script>
+
+                                    </div>
+                                </div>
                             </div>
+
+
+
                         </div>
-                        <div class="row form-group">
-                            <div class="col-md-12">
-                                <label class="sr-only" for="subject">Telefon Numarası</label>
-                                <input type="text" id="subject" class="form-control" placeholder="Telefon numaranızı giriniz.">
-                            </div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col-md-12">
-                                <label class="sr-only" for="message">Mesajınız</label>
-                                <textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Mesajınızı yazınız."></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Messajı Gönder" class="btn btn-primary">
-                        </div>
-                    </form>
+                    }
                 </div>
             </div>
         </div>

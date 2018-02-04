@@ -17,9 +17,9 @@ namespace TeknikServis.Entity.IdentityModels
         public string Soyad { get; set; }
         public DateTime KayitTarihi { get; set; } = DateTime.Now;
         public string AktivasyonKodu { get; set; }
-
-        public virtual List<Message> Mesajlar { get; set; } = new List<Message>();
         public virtual List<ArizaKayit> ArizaKayitlari { get; set; } = new List<ArizaKayit>();
+        public virtual List<Message> Mesajlar { get; set; } = new List<Message>();
+        
         public virtual List<Anket> Anketler { get; set; } = new List<Anket>();
         public virtual List<Teknisyen> Teknisyenler { get; set; } = new List<Teknisyen>();
 

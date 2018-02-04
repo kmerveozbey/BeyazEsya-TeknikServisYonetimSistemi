@@ -18,11 +18,9 @@ namespace TeknikServis.DAL
         public virtual DbSet<Message> Mesajlar { get; set; }
         public virtual DbSet<ArizaKayit> ArizaKayitlari { get; set; }
         public virtual DbSet<ArizaDurumDetay> ArizaDurumDetaylari { get; set; }
-        public virtual DbSet<ArizaDetay> ArizaDetaylari { get; set; }
         public virtual DbSet<Teknisyen> Teknisyenler { get; set; }
         public virtual DbSet<Anket> Anketler { get; set; }
         public virtual DbSet<Dosya> Dosyalar { get; set; }
-        public virtual DbSet<SoruTuru> SoruTurleri { get; set; }
         public virtual DbSet<AnketSoru> AnketSorulari { get; set; }
     }
 

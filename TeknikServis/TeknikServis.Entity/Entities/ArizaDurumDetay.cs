@@ -12,7 +12,6 @@ namespace TeknikServis.Entity.Entities
     [Table("ArizaDurumDetaylari")]
     public class ArizaDurumDetay
     {
-
         [Key]
         public int ID { get; set; }
         public int ArizaKayitID { get; set; }

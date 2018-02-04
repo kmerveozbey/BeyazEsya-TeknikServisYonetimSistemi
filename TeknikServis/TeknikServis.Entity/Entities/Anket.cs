@@ -19,11 +19,10 @@ namespace TeknikServis.Entity.Entities
         [ForeignKey("UyeId")]
         public virtual ApplicationUser Uye { get; set; }
 
-        public int SoruTuruId { get; set; }
-        [ForeignKey("SoruTuruId")]
-        public virtual SoruTuru SoruTuru { get; set; }
-
-        public int ToplamPuan { get; set; }
+        public int SoruID { get; set; }
+        [ForeignKey("SoruID")]
+        public virtual AnketSoru Soru { get; set; }
+        
     }
 }
 
