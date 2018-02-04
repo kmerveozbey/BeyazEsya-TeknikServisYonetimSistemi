@@ -128,7 +128,7 @@ namespace TeknikServis.MVC.Controllers
         public ActionResult Logout()
         {
             HttpContext.GetOwinContext().Authentication.SignOut();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
         [Authorize]
         public ActionResult Profile()

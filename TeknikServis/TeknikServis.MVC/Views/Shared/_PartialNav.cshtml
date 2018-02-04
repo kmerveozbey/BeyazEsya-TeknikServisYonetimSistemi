@@ -46,11 +46,18 @@
                     <li class="has-dropdown">
                         <a href="#">KULLANICI ISLEMLERI</a>
                         <ul class="dropdown">
-                            <li><a href="@Url.Action("Register","Account")">KAYIT OL</a></li>
-                            <li><a href="@Url.Action("Login","Account")">GIRIS YAP</a></li>
+                            @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                            {
+                                <li><i class="fa fa-user"></i><a href="@Url.Action("Profile","Account")">PROFİLİM</a></li>
+                                <li><i class="fa fa-sign-out"></i><a href="/Account/Logout">ÇIKIŞ YAP</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("Register","Account")">KAYIT OL</a></li>
+                                <li><a href="@Url.Action("Login","Account")">GIRIS YAP</a></li>}
                         </ul>
                     </li>
-
+                    
                 </ul>
             </div>
         </div>
