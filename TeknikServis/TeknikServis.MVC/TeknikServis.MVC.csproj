@@ -159,10 +159,10 @@
     <Content Include="Areas\ServisYonetim\Views\Operator\TeknisyenIslemleri.cshtml" />
     <Content Include="Areas\ServisYonetim\Views\Admin\YonlendirilmemisArizalar.cshtml" />
     <Content Include="Areas\ServisYonetim\Views\Admin\YonlendirilmisArizalar.cshtml" />
-    <Content Include="Areas\ServisYonetim\Views\Admin\Detaylar.cshtml" />
     <Content Include="Areas\ServisYonetim\Views\Operator\YonlendirilmemisArizalar.cshtml" />
     <Content Include="Areas\ServisYonetim\Views\Operator\YonlendirilmisArizalar.cshtml" />
     <Content Include="Areas\ServisYonetim\Views\Operator\Detaylar.cshtml" />
+    <Content Include="Areas\ServisYonetim\Views\Admin\Detaylar.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

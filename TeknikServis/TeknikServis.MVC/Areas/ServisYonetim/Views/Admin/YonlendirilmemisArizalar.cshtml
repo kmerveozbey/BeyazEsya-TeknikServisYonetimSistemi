@@ -44,7 +44,7 @@
                         @Html.DisplayFor(modelItem => item.Mesaj)
                     </td>
                     <td>
-                        <a href="@Url.Action("Detaylar", "Admin", new { Area = "ServisYonetim" })"> Detaylar</a>
+                        <a href="@Url.Action("Detaylar", "Admin", new { Area = "ServisYonetim",id=item.ArizaId })"> Detaylar</a>
                     </td>
                 </tr>
             }

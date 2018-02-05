@@ -34,26 +34,26 @@
 
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UyeId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UyeAdı)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TelNo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Mesaj)
-                    </td>
-                    <td>
-                        <a href="@Url.Action("Detaylar", "Operator", new { Area = "ServisYonetim" })"> Detaylar</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UyeId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UyeAdı)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TelNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mesaj)
+                </td>
+                <td>
+                    <a href="@Url.Action("Detaylar", "Admin", new { Area = "ServisYonetim",id=item.ArizaId })"> Detaylar</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

@@ -129,6 +129,7 @@ namespace TeknikServis.MVC.Areas.ServisYonetim.Controllers
             new ArizaKayitRepo().GetAll().ToList()
             .ForEach(item => model.Add(new ArizaViewModel()
             {
+                ArizaId=item.ID,
                 UyeId = item.Uye.Id,
                 UyeAdı = MembershipTools.GetUserName(item.Uye.Id),
                 Email = item.Email,

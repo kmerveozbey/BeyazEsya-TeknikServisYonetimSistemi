@@ -4,80 +4,82 @@
     ViewBag.Title = "Detaylar";
     Layout = "~/Views/Shared/_LayoutIndexOperator.cshtml";
 }
+@Html.ValidationSummary()
+@using (Html.BeginForm("Detaylar", "Admin", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="id" value="@Model.ArizaId" />
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
 
-<h2>Detaylar</h2>
+            <dt>
+                @Html.DisplayNameFor(model => model.UyeId)
+            </dt>
 
-<div>
-    <h4>ArizaViewModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.UyeId)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.UyeId)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.UyeId)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.UyeAdı)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UyeAdı)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.UyeAdı)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.UyeAdı)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.LocationX)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LocationX)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.LocationX)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.LocationX)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.LocationY)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LocationY)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.LocationY)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.LocationY)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TelNo)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TelNo)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TelNo)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TelNo)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Durum)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Durum)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Durum)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Durum)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Mesaj)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Mesaj)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Mesaj)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Mesaj)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
