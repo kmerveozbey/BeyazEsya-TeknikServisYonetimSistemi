@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace TeknikServis.MVC.Areas.ServisYonetim.Controllers
 {
+    [Authorize(Roles = "Teknisyen")]
     public class TeknisyenController : Controller
     {
         // GET: ServisYonetim/Teknisyen

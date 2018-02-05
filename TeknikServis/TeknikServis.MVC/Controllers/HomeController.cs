@@ -99,7 +99,8 @@ namespace TeknikServis.MVC.Controllers
                     });
                 }
             }
-            return View(model);
+            return RedirectToAction("Anasayfa","Home");
+
         }
 
         [NonAction] // Merve sanki [NonAction]'a gerek yok ama sen bilirsin tabi

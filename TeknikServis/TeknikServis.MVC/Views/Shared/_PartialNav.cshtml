@@ -36,11 +36,14 @@
                     <li><a href="@Url.Action("Anasayfa","Home")">ANASAYFA</a></li>
                     <li><a href="@Url.Action("Hakkimizda","Home")">HAKKIMIZDA</a></li>
                     <li class="has-dropdown">
-                        <a href="#">ARIZA</a>
-                        <ul class="dropdown">
-                            <li><a href="@Url.Action("ArizaKayit","Home")">ARIZA KAYIT</a></li>
-                            <li><a href="@Url.Action("ArizaTakip","Home")">ARIZA TAKİP</a></li>
-                        </ul>
+                        @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                        {
+                            <a href="#">ARIZA</a>
+                            <ul class="dropdown">
+                                <li><a href="@Url.Action("ArizaKayit", "Home")">ARIZA KAYIT</a></li>
+                                <li><a href="@Url.Action("ArizaTakip", "Home")">ARIZA TAKİP</a></li>
+                            </ul>
+                        }
                     </li>
                     <li><a href="@Url.Action("Iletisim","Home")">İLETİŞİM</a></li>
                     <li class="has-dropdown">
@@ -57,7 +60,7 @@
                                 <li><a href="@Url.Action("Login","Account")">GIRIS YAP</a></li>}
                         </ul>
                     </li>
-                    
+
                 </ul>
             </div>
         </div>
