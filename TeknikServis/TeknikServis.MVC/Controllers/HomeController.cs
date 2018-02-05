@@ -38,14 +38,14 @@ namespace TeknikServis.MVC.Controllers
                 new ArizaKayitRepo().GetAll().ToList()
                     .ForEach(item => model.Add(new ArizaViewModel()
                     {
-                        UyeId=userID,
-                        Email=item.Email,
-                        TelNo=item.TelNo,
+                        UyeId = userID,
+                        Email = item.Email,
+                        TelNo = item.TelNo,
                         //TeknisyenID=item.Teknisyen.Uye.Id,
-                        Mesaj=item.Mesaj,
+                        Mesaj = item.Mesaj,
                     }));
             }
-                return View(model.Where(x => x.UyeId == userID).ToList());
+            return View(model.Where(x => x.UyeId == userID).ToList());
         }
 
 
@@ -64,43 +64,50 @@ namespace TeknikServis.MVC.Controllers
             {
                 return RedirectToAction("Anasayfa", "Home");
             }
-            var userID = User.Identity.GetUserId();
-           
-            ArizaKayit yeniAriza = new ArizaKayit()
+            try
             {
-                UyeId = User.Identity.GetUserId(),
-                TeknisyenID=null,
-                LocationX = model.LocationX,
-                LocationY = model.LocationY,
-                Email = model.Email,
-                TelNo = model.TelNo,
-                Mesaj = model.Mesaj,
-            };
-            new ArizaKayitRepo().Insert(yeniAriza);
-            if (model.Dosyalar.Any())
-            {
-                foreach (var dosya in model.Dosyalar)
-                {
-                    string fileName = Path.GetFileNameWithoutExtension(dosya.FileName);
-                    string extName = Path.GetExtension(dosya.FileName);
-                    fileName = SiteSettings.UrlFormatConverter(fileName);
-                    fileName += Guid.NewGuid().ToString().Replace("-", "");
-                    var directoryPath = Server.MapPath("~/Uploads/arizalar");
-                    var filePath = Server.MapPath("~/Uploads/arizalar/") + fileName + extName;
-                    if (!Directory.Exists(directoryPath))
-                        Directory.CreateDirectory(directoryPath);
-                    dosya.SaveAs(filePath);
-                    ResimBoyutlandir(400, 300, filePath);
-                    new DosyaRepo().Insert(new Dosya()
-                    {
-                        DosyaYolu = @"/Uploads/arizalar/" + fileName + extName,
-                        ArizaID = yeniAriza.ID,
-                        Uzanti = extName.Substring(1)
-                    });
-                }
-            }
-            return RedirectToAction("Anasayfa","Home");
+                var userID = User.Identity.GetUserId();
 
+                ArizaKayit yeniAriza = new ArizaKayit()
+                {
+                    UyeId = User.Identity.GetUserId(),
+                    TeknisyenID = null,
+                    LocationX = model.LocationX,
+                    LocationY = model.LocationY,
+                    Email = model.Email,
+                    TelNo = model.TelNo,
+                    Mesaj = model.Mesaj,
+                };
+                new ArizaKayitRepo().Insert(yeniAriza);
+                if (model.Dosyalar.Any())
+                {
+                    foreach (var dosya in model.Dosyalar)
+                    {
+                        string fileName = Path.GetFileNameWithoutExtension(dosya.FileName);
+                        string extName = Path.GetExtension(dosya.FileName);
+                        fileName = SiteSettings.UrlFormatConverter(fileName);
+                        fileName += Guid.NewGuid().ToString().Replace("-", "");
+                        var directoryPath = Server.MapPath("~/Uploads/arizalar");
+                        var filePath = Server.MapPath("~/Uploads/arizalar/") + fileName + extName;
+                        if (!Directory.Exists(directoryPath))
+                            Directory.CreateDirectory(directoryPath);
+                        dosya.SaveAs(filePath);
+                        ResimBoyutlandir(400, 300, filePath);
+                        new DosyaRepo().Insert(new Dosya()
+                        {
+                            DosyaYolu = @"/Uploads/arizalar/" + fileName + extName,
+                            ArizaID = yeniAriza.ID,
+                            Uzanti = extName.Substring(1)
+                        });
+                    }
+                }
+                return RedirectToAction("Anasayfa", "Home");
+
+            }
+            catch (Exception )
+            {
+                return View();
+            }
         }
 
         [NonAction] // Merve sanki [NonAction]'a gerek yok ama sen bilirsin tabi
